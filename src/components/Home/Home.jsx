@@ -15,7 +15,6 @@ const HomeContainer = styled.div`
   color: white;
   background-repeat: no-repeat;
   background-position: right 0px;
-  background-attachment: fixed;
   background-size: cover;
   height: 100vh;
 `;

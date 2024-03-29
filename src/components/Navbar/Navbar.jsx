@@ -8,7 +8,6 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
-import styled from "styled-components";
 import PhoneIcon from "@mui/icons-material/Phone";
 
 
@@ -32,7 +31,7 @@ function Navbar() {
   const navItems = [
     { key: "aboutUs", label: "Biz haqmizda", href: "#about" },
     { key: "projects", label: "Bizning loyihalar", href: "#projects" },
-    { key: "news", label: "Yangiliklar", href: "#faq" },
+    { key: "news", label: "Yangiliklar", href: "#news" },
   ];
 
   return (

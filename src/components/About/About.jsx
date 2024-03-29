@@ -8,8 +8,11 @@ import { HeadingText, ParagraphText, SubHeadingText } from "../Texts/Texts";
 const AboutContainer = styled.div`
   width: 100%;
   height: 100vh;
-  margin: 80px auto;
+  margin: 100px auto;
   background-image: url(${aboutImg});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 `;
 
 const About = () => {
