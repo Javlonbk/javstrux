@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PhoneIcon from '@mui/icons-material/Phone';
 import CloseIcon from '@mui/icons-material/Close';
 import { styled } from 'styled-components';
-import { Box, Button, Drawer, IconButton } from '@mui/material';
+import { Box,  Drawer, IconButton } from '@mui/material';
 import Form from '../Form/Form';
 
 const ContactContainer = styled.div`
@@ -51,7 +51,7 @@ const Contact = () => {
           >
             <CloseIcon />
           </IconButton>
-          <Form/>
+          <Form />
         </Box>
       </Drawer>
     </ContactContainer>

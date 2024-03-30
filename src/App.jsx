@@ -4,9 +4,11 @@ import About from './components/About/About'
 import { Projects } from './components/Projects/Projects'
 import News from './components/News/News'
 import Contact from './components/Contact/Contact'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
+  
   return (
     <>
       <Home/>
@@ -14,6 +16,7 @@ function App() {
       <Projects/>
       <News/>
       <Contact/>
+      <Footer/>
     </>
   )
 }

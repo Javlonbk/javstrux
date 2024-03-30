@@ -1,7 +1,7 @@
 import {  Typography } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
-import {  SubHeadingText } from "../Texts/Texts";
+import {  SubHeadingText } from "../Typography/Texts";
 import Button from "../Button/Button";
 
 const NewsCardContainer = styled.a`
@@ -27,10 +27,8 @@ const NewsCardContainer = styled.a`
 const NewsCard = ({newsItem}) => {
 
     const {imgSrc, title, date, href} = newsItem;
-
-    console.log(newsItem);
   return (
-    <NewsCardContainer imgSrc={imgSrc} href={href}>
+    <NewsCardContainer target={"_blank"} imgSrc={imgSrc} href={href}>
       <div className="newscard-img" />
       <SubHeadingText>
         {title}

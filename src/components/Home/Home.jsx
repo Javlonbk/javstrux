@@ -3,6 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import HomeImage from "../../assets/png/home.jpg";
 import Navbar from "../Navbar/Navbar";
+import DynamicWordChange from "../Typography/DynamicWordChange";
+import { useTranslation } from "react-i18next";
 
 const HomeContainer = styled.div`
   box-sizing: border-box;
@@ -20,16 +22,17 @@ const HomeContainer = styled.div`
 `;
 
 const Home = () => {
+
+  const {t} = useTranslation();
+
   return (
     <HomeContainer>
       <Navbar />
       <Container>
-        <Box sx={{textAlign:'center', marginTop:"50px"}}>
-          <Typography component={"h1"} sx={{fontSize:'56px', lineHeight:'48px', fontWeight:"400px"}}>
-            Biz zamonaviy uylar yaratamiz!
-          </Typography>
-          <Typography component={"p"} sx={{fontSize:'20px', lineHeight:"24px", margin:"30px auto", width:'70%',}}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, impedit ut. Architecto, quidem! Voluptate, animi error. Est laudantium itaque ipsam?
+        <Box sx={{textAlign:'center', marginTop:"150px"}}>
+          <DynamicWordChange/>
+          <Typography component={"p"} sx={{fontSize:'22px', lineHeight:"28px", margin:"50px auto", width:'70%',}}>
+          {t("home.title")}
           </Typography>
         </Box>
       </Container>

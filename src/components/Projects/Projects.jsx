@@ -4,7 +4,8 @@ import { Box, Container } from "@mui/material";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import projects from "./projects";
-import { HeadingText, ParagraphText, SubHeadingText } from "../Texts/Texts";
+import { HeadingText, ParagraphText } from "../Typography/Texts";
+import { useTranslation } from "react-i18next";
 
 const ProjectsContainer = styled.div`
   width: 100%;
@@ -47,6 +48,9 @@ const CardContent = styled.div`
 `;
 
 export const Projects = () => {
+
+  const {t} = useTranslation();
+
   const cards = projects.map((project) => {
     return (
       <Card key={project.title} imgSrc={project.imgSrc}>
@@ -62,12 +66,9 @@ export const Projects = () => {
     <ProjectsContainer id="projects">
       <Container>
         <Box sx={{ width: "60%", m: "auto", mb: "30px", textAlign: "center" }}>
-          <HeadingText>Bizning loyihalar</HeadingText>
+          <HeadingText>{t("projects.heading")}</HeadingText>
           <ParagraphText style={{ color: "#00b2bf" }}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
-            voluptatibus corporis porro ad pariatur voluptatum necessitatibus id
-            vitae, vel maiores ea, quae corrupti ratione molestiae dicta minus
-            aperiam error. Voluptatum!
+            {t("projects.paragraph")}
           </ParagraphText>
         </Box>
       </Container>

@@ -1,0 +1,33 @@
+{
+    "menu": {
+        "about": "Biz haqimizda",
+        "projects": "Bizning loyihalar",
+        "news": "Yangiliklar"
+    },
+    "home": {
+        "heading": {
+            "static1": "Biz",
+            "static2": "binolar yaratamiz",
+            "words": ["zamonaviy", "shinam", "aqlli"]
+        },
+        "title": "Biz O'zbekiston bo'yicha turli xil inshootlar loyihalashtiramiz va quramiz. Mijozlarning istaklari va xohishlari doimo bizning eng muhim ustozimiz."
+    },
+    "about": {
+        "heading": "Biz haqimizda",
+        "subHeading": "Orzuni haqiqatga aylantirib, JAVSTRUX qurilishda mukammal mahorat va innovatsion yechimlar bilan.",
+        "paragraph": "Biz shunchaki loyihalar yaratmaymiz, yangi imkoniyatlar yaratamiz. Davlat miqyosidagi inshoatlarni qurish orqali biz kelajakni quryapmiz. Biz atrof-muhit haqida qayg'uramiz: kompaniya binolar va infratuzilmani qurish va ulardan foydalanish bilan bog'liq ekologik jihatlar uchun to'liq javobgarlikni o'z zimmasiga oladi.",
+        "statistics":{
+            "label": ["Xodimlar", "Loyihalar", "Tajriba"]
+        }
+    },
+    "projects": {
+        "heading": "Bizning loyihalar",
+        "paragraph": "“JAVSTRUX bilan meʼmoriy moʻjizlarga sayohat qiling. Bizning turli xildagi  ajoyib osmono'par binolardan tortib to buyurtma uylarigacha mukammallik, innovatsiyalar va mijozlar ehtiyojini qondirishga sodiqligimizni namoyish etadi.  Bizga qo'shiling, birgalikda kelajak yaratamiz!",
+        "title1": "Bu keng ko'lamli ijtimoiy ahamiyatga ega loyiha. Toshkentdagi madaniy-ko'ngilochar klaster yangi diqqatga sazovor joylardan biridir.",
+        "title2": "O'zbekiston aholisiga qulaylik yaratish maqsadida yaratilgan ko'p funksiyali turar-joy majmuasi.",
+        "title3": "\"Poytaxt markazidagi muhtasham turar-joy massivi.\"",
+        "title4": "\"Fonon - O'zbekistonda 2020 yilda italyan zavodlari negizida qurilgan zargarlik buyumlari ishlab chiqarish zavodi. Fonon - Markaziy Osiyoda Yevropa va Sharq uslubida qimmatbaho metallardan zargarlik buyumlari ishlab chiqaradigan yagona yirik korxona.\"",
+        "title5": "\"Tashkent City xalqaro biznes markazida joylashgan xalqaro bolalar bog'chasi va maktabi.\"",
+        "title6": "\"Bu xalqaro darajada bilim beradigan ta'lim muassasasi.\""
+    }
+}

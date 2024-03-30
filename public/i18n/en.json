@@ -1,0 +1,30 @@
+{
+    "menu": {
+        "about": "About Us",
+        "projects": "Our Projects",
+        "news": "News"
+    },
+    "home": {
+        "heading": {
+            "static1": "We",
+            "static2": "build buildings",
+            "words": ["modern", "unique", "smart"]
+        },
+        "title": "We design and build various types of structures in Uzbekistan. Meeting the needs and desires of our clients is always our top priority."
+    },
+    "about": {
+        "heading": "About Us",
+        "subHeading": "Transforming dreams into reality, JAVSTRUX builds with perfect craftsmanship and innovative solutions.",
+        "paragraph": "We don't just create projects, we create new possibilities. By building state-of-the-art structures, we shape the future. We are committed to full responsibility for ecological aspects related to building and using company buildings and infrastructure."
+    },
+    "projects": {
+        "heading": "Our Projects",
+        "paragraph": "Travel through the 'JAVSTRUX' with us and discover memorable architectural wonders. From magnificent skyscrapers to customized residential buildings, we demonstrate our commitment to excellence, innovation, and meeting the needs of our clients. Join us, together we create the future!",
+        "title1": "This project has broad social significance. The cultural and recreational cluster in Tashkent is one of the attention-grabbing places.",
+        "title2": "A multifunctional residential complex created to provide convenience to the population of Uzbekistan.",
+        "title3": "\"A magnificent residential complex in the capital.\"",
+        "title4": "\"Fonon - A large factory producing jewelry made of precious metals based on Italian factories in Uzbekistan in 2020. Fonon - A large enterprise producing jewelry made of precious metals in Central Asia using European and Eastern methods.\"",
+        "title5": "\"International children's garden and school located in Tashkent City international business center.\"",
+        "title6": "\"This is an internationally accredited educational institution.\""
+    }
+}

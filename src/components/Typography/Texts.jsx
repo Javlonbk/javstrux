@@ -17,6 +17,6 @@ export const SubHeadingText = styled.h4`
 font-size: 24px;
 margin-top: 10px;
 line-height: 34px;
-color:${(props) => props.white? '#fff' : "#00b2bf"};
+color:${(props) => props.black? '#000' : "#00b2bf"};
 font-weight: 600;
 `

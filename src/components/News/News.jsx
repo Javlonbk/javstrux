@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import NewsCard from "./NewsCard";
 import { Box, Container } from "@mui/material";
-import { HeadingText } from "../Texts/Texts";
+import { HeadingText } from "../Typography/Texts";
 import news from "./news";
 
 const NewsContainer = styled.div`

@@ -1,92 +1,50 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components'
-import { HeadingText } from '../Texts/Texts';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { SubHeadingText } from "../Typography/Texts";
+import CountUp from "react-countup";
+import ScrollTrigger from "react-scroll-trigger";
+import { useTranslation } from "react-i18next";
 
-function HitCounter() {
-  const [employeeCount, setEmployeeCount] = useState(0);
-  const [projectCount, setProjectCount] = useState(0);
-  const [yearsCount, setYearsCount] = useState(0);
-  const [employeeLimitReached, setEmployeeLimitReached] = useState(false);
-  const [projectLimitReached, setProjectLimitReached] = useState(false);
-  const [yearsLimitReached, setYearsLimitReached] = useState(false);
-  const employeeLimit = 350; // Set employee count limit
-  const projectLimit = 24; // Set project count limit
-  const yearsLimit = 10; // Set years count limit
-  const hitCounterRef = useRef(null);
-
-  useEffect(() => {
-    const increaseCounts = () => {
-      setEmployeeCount(prevCount => {
-        const newCount = prevCount + 1;
-        if (newCount >= employeeLimit) {
-          setEmployeeLimitReached(true);
-          return prevCount;
-        }
-        return newCount;
-      });
-      setProjectCount(prevCount => {
-        const newCount = prevCount + 1;
-        if (newCount >= projectLimit) {
-          setProjectLimitReached(true);
-          return prevCount;
-        }
-        return newCount;
-      });
-      setYearsCount(prevCount => {
-        const newCount = prevCount + 1;
-        if (newCount >= yearsLimit) {
-          setYearsLimitReached(true);
-          return prevCount;
-        }
-        return newCount;
-      });
-    };
-
-    const handleIntersection = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const intervalId = setInterval(increaseCounts, 1);
-          observer.disconnect();
-          return () => clearInterval(intervalId);
-        }
-      });
-    };
-
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1,
-    };
-
-    const observer = new IntersectionObserver(handleIntersection, options);
-    if (hitCounterRef.current) {
-      observer.observe(hitCounterRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [employeeLimit, projectLimit, yearsLimit]);
-
-  const HitCounterContainer = styled.div`
+const HitCounterContainer = styled.div`
     width: 50%;
-    margin:30px 0px;
+    margin: 50px 0px;
     display: flex;
     justify-content: space-between;
-  `
+    text-align: center;
+    h1 {
+      font-size: 62px;
+      color: #00b2bf;
+    }
+`;
+
+function HitCounter() {
+  const { t } = useTranslation();
+
+  const [counterOn, setCounterOn] = useState(false);
+
+  const statistics = [
+    {
+      label: t("about.statistics.label.0"), // Translate label "Xodimlar"
+      count: 500
+    },
+    {
+      label: t("about.statistics.label.1"), // Translate label "Loyihalar"
+      count: 50
+    },
+    {
+      label: t("about.statistics.label.2"), // Translate label "Tajriba"
+      count: 15
+    }
+  ];
 
   return (
-    <HitCounterContainer ref={hitCounterRef}>
-      <div className="counter">
-         <HeadingText>{employeeCount}</HeadingText>
-         Ishchilar
-      </div>
-      <div className="counter">
-        <HeadingText>{projectCount}</HeadingText>
-        Loyihalar
-      </div>
-      <div className="counter">
-        <HeadingText>{yearsCount}</HeadingText>
-        Tajriba
-      </div>
+    <HitCounterContainer>
+      {statistics.map(({ label, count }, index) => (
+        <ScrollTrigger key={index} onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+          <h1>{counterOn && <CountUp start={0} end={count} duration={2} delay={0} />}+</h1>
+          <SubHeadingText black>{label}</SubHeadingText>
+        </ScrollTrigger>
+      ))}
     </HitCounterContainer>
   );
 }

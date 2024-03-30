@@ -9,6 +9,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import PhoneIcon from "@mui/icons-material/Phone";
+import navItems from "../../data/navbar";
+import Logo from "../Logo/Logo";
+import LanguageControl from "../LanguageControl/LanguageControl";
+import { useTranslation } from "react-i18next";
 
 
 function Navbar() {
@@ -28,12 +32,8 @@ function Navbar() {
     handleCloseNavMenu();
   };
 
-  const navItems = [
-    { key: "aboutUs", label: "Biz haqmizda", href: "#about" },
-    { key: "projects", label: "Bizning loyihalar", href: "#projects" },
-    { key: "news", label: "Yangiliklar", href: "#news" },
-  ];
-
+  const {t} = useTranslation();
+ 
   return (
         <AppBar
           sx={{
@@ -54,42 +54,13 @@ function Navbar() {
                 alignItems: "center",
               }}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <img
-                  src=""
-                  style={{ width: "60px", marginTop: "10px" }}
-                  alt=""
-                />
-                <Typography
-                  variant="h6"
-                  noWrap
-                  component="a"
-                  href="/"
-                  sx={{
-                    display: { xs: "none", md: "block" },
-                    ms: 2,
-                    mr: 3,
-                    fontFamily: "monospace",
-                    fontWeight: 700,
-                    letterSpacing: ".1rem",
-                    textDecoration: "none",
-                    color: "#fff",
-                  }}
-                >
-                  JavStrux
-                </Typography>
-              </Box>
-
+              <Logo  />
               <Box
                 sx={{
                   display: { xs: "none", md: "flex" },
                   width: "40%",
                   justifyContent: "space-between",
+                  alignItems:"center"
                 }}
               >
                 {navItems.map((item) => (
@@ -106,16 +77,18 @@ function Navbar() {
                       borderBottom:
                         activeItem === item.key ? "2px solid #fff" : "none",
                       transition: "border-color 0.3s ease-out",
+                      textTransform:"capitalize"
                     }}
                   >
-                    {item.label}
+                    {t(`${item.label}`)}
                   </a>
                 ))}
+        
+        
               </Box>
 
-              {/* languages */}
-
               <Box sx={{ display: "flex", alignItems:'center' }}>
+              <LanguageControl  />
                 <Typography component={"h4"} fontSize="16px">
                   +998 90 044 44 01
                 </Typography>
@@ -180,9 +153,10 @@ function Navbar() {
                               ? "2px solid #000"
                               : "none",
                           transition: "border-color 0.3s ease-out",
+                          textTransform:"capitalize"
                         }}
                       >
-                        {item.label}
+                        {t(`${item.label}`)}
                       </a>
                     </MenuItem>
                   ))}
