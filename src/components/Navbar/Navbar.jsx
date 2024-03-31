@@ -8,11 +8,11 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
-import PhoneIcon from "@mui/icons-material/Phone";
 import navItems from "../../data/navbar";
 import Logo from "../Logo/Logo";
 import LanguageControl from "../LanguageControl/LanguageControl";
 import { useTranslation } from "react-i18next";
+import PhoneNumber from "../phoneNumber/PhoneNumber";
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -104,28 +104,7 @@ function Navbar() {
             <LanguageControl black={scrollPosition} />
              
             {/* contact  */}
-            <Typography
-              component={"h4"}
-              fontSize="16px"
-              sx={{ display: { xs: "none", lg: "block" } }}
-            >
-              +998 90 044 44 01
-            </Typography>
-            <Box
-              sx={{
-                width: "40px",
-                height: "40px",
-                borderRadius: "50%",
-                background: "#00b2bf",
-                color: "#fff",
-                display: {xs:"none", mb:"flex"},
-                justifyContent: "center",
-                alignItems: "center",
-                marginLeft: "10px",
-              }}
-            >
-              <PhoneIcon sx={{ fontSize: "20px" }} />
-            </Box>
+           <PhoneNumber black={scrollPosition} />
             
             {/* mobil menu */}
             <Box

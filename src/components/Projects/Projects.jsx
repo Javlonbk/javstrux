@@ -37,6 +37,9 @@ const Card = styled.div`
     opacity: 1;
     transform: translateY(0);
   }
+  @media (max-width:599px){
+    height:50vh;
+  }
 `;
 
 const CardContent = styled.div` 
@@ -65,7 +68,7 @@ export const Projects = () => {
   return (
     <ProjectsContainer id="projects">
       <Container>
-        <Box sx={{ width: "60%", m: "auto", mb: "30px", textAlign: "center" }}>
+        <Box sx={{ width:{md:"70%", xs:"100%"}, m: "auto", mb: "30px", textAlign: "center" }}>
           <HeadingText>{t("projects.heading")}</HeadingText>
           <ParagraphText style={{ color: "#00b2bf" }}>
             {t("projects.paragraph")}
