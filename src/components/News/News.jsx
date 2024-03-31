@@ -4,6 +4,7 @@ import NewsCard from "./NewsCard";
 import { Box, Container } from "@mui/material";
 import { HeadingText } from "../Typography/Texts";
 import news from "./news";
+import { useTranslation } from "react-i18next";
 
 const NewsContainer = styled.div`
   width: 100%;
@@ -11,11 +12,14 @@ const NewsContainer = styled.div`
 `;
 
 const News = () => {
+
+  const {t} = useTranslation();
+
   return (
     <NewsContainer id="news">
       <Container>
         <HeadingText style={{ textAlign: "center", marginBottom: "30px" }}>
-          Yangiliklar
+          {t('news.heading')}
         </HeadingText>
         <Box sx={{display:"flex", justifyContent:"space-between", flexWrap:"wrap"}}>
           {news.map((newsItem) => (

@@ -15,6 +15,17 @@ const HitCounterContainer = styled.div`
       font-size: 62px;
       color: #00b2bf;
     }
+    @media (max-width:999px) {
+      width: 90%;
+      margin: 50px auto;
+      text-align: center;
+    }
+    @media (max-width:599px){
+      flex-direction: column;
+      .scroll-trigger{
+        margin: 15px auto;
+      }
+    }
 `;
 
 function HitCounter() {
@@ -38,9 +49,9 @@ function HitCounter() {
   ];
 
   return (
-    <HitCounterContainer>
+    <HitCounterContainer >
       {statistics.map(({ label, count }, index) => (
-        <ScrollTrigger key={index} onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+        <ScrollTrigger className="scroll-trigger" key={index} onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
           <h1>{counterOn && <CountUp start={0} end={count} duration={2} delay={0} />}+</h1>
           <SubHeadingText black>{label}</SubHeadingText>
         </ScrollTrigger>

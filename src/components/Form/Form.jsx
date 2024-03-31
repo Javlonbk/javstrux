@@ -4,6 +4,7 @@ import { Container } from "@mui/system";
 import Snack from "../Snacks/Snack";
 import { SubHeadingText } from "../Typography/Texts";
 import useForm from "../../hooks/useForm";
+import { useTranslation } from "react-i18next";
 
 const Form = () => {
   const {
@@ -18,50 +19,53 @@ const Form = () => {
     handleNameChange,
     handleTextChange
   } = useForm();
+  
+  const {t} = useTranslation();
+
 
   return (
     <>
       <Container>
         <FormContainer id="contact">
-          <SubHeadingText>Fikr va mulohazlaringizni qoldiring.</SubHeadingText>
+          <SubHeadingText>{t("contact.form.heading")}</SubHeadingText>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Ismingiz</label>
+            <label htmlFor="name">{t('contact.form.name')}</label>
             <input
               id="name"
               type="text"
               value={form.name}
               onChange={handleNameChange}
-              placeholder="Ismingiz"
+              placeholder={t('contact.form.name')}
             />
             {showNameError && (
-              <p className="error-text">Ism 4 ta belgidan kam bo'lamsligi kerak!</p>
+              <p className="error-text">{t("contact.form.nameError")}</p>
             )}
 
-            <label htmlFor="phone">Telefon raqamingiz</label>
+            <label htmlFor="phone">{t("contact.form.phone")}</label>
             <input
               id="phone"
               type="tel"
               value={form.phone}
               onChange={handlePhoneChange}
-              placeholder="Telefon raqamingiz"
+              placeholder={t("contact.form.phone")}
             />
             {showPhoneError && (
-              <p className="error-text">Telefon raqami noto'g'ri!</p>
+              <p className="error-text">{t("contact.form.phoneError")}</p>
             )}
 
-            <label htmlFor="text">Xabaringizni qoldiring...</label>
+            <label htmlFor="text">{t("contact.form.message")}</label>
             <textarea
               id="text"
               value={form.text}
               onChange={handleTextChange}
-              placeholder="Xabaringizni qoldiring..."
+              placeholder={t("contact.form.message")}
             />
             {showTextError && (
-              <p className="error-text">Xabar bo'sh bo'lishi mumkin emas!</p>
+              <p className="error-text">{t("contact.form.messageError")}</p>
             )}
 
             <button type="submit" className="btn-send">
-              Yuborish
+              {t("contact.form.send")}
             </button>
           </form>
         </FormContainer>

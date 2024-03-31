@@ -29,7 +29,7 @@ const Home = () => {
     <HomeContainer>
       <Navbar />
       <Container>
-        <Box sx={{textAlign:'center', marginTop:"150px"}}>
+        <Box sx={{textAlign:'center', marginTop:{xs:"100px", sm:"150px"}}}>
           <DynamicWordChange/>
           <Typography component={"p"} sx={{fontSize:'22px', lineHeight:"28px", margin:"50px auto", width:'70%',}}>
           {t("home.title")}

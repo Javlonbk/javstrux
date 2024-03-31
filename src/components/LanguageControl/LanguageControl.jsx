@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useTranslation } from "react-i18next";
 import { LANGUAGES } from "../../constants";
 
-const LanguageControl = () => {
+const LanguageControl = ({black}) => {
   
   const {i18n} = useTranslation();
   
@@ -31,7 +31,7 @@ const LanguageControl = () => {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-        sx={{color:'#fff'}}
+        sx={{color: black ? "#6e6e6e" : "#fff", fontWeight:'800'}}
       >
         {i18n.language}
       </Button>

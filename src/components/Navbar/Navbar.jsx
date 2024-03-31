@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react"; // Import useState and useEffect
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,10 +14,22 @@ import Logo from "../Logo/Logo";
 import LanguageControl from "../LanguageControl/LanguageControl";
 import { useTranslation } from "react-i18next";
 
-
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [activeItem, setActiveItem] = React.useState(null);
+  const [scrollPosition, setScrollPosition] = useState(0); // Import useState
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -32,139 +44,156 @@ function Navbar() {
     handleCloseNavMenu();
   };
 
-  const {t} = useTranslation();
- 
+  const { t } = useTranslation();
+
   return (
-        <AppBar
+    <AppBar
+      sx={{
+        backgroundColor: scrollPosition ? "#fff" : "transparent",
+        marginTop: "0px",
+        height: {xs:"80px", sm:"100px"},
+        boxShadow: "none",
+        color: scrollPosition ? "#6e6e6e" : "#fff",
+        position: scrollPosition ? "fixed" : "static",
+      }}
+    >
+      <Container maxWidth="xl" height="100%">
+        <Toolbar
           sx={{
-            backgroundColor: "transparent",
-            marginTop: "0px",
-            height:"100px",
-            boxShadow: "none",
-            color: "#fff",
-            position:"static"
+            height: {xs:"80px", sm:"100px"},
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <Container maxWidth="xl" height="100%">
-            <Toolbar
+          {/* logo */}
+          {scrollPosition ? <Logo scrollposition /> : <Logo />}
+
+          {/* desktop menu */}
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              width: { xs: "50%", lg: "40%" },
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            {navItems.map((item) => (
+              <a
+                key={item.key}
+                href={item.href}
+                onClick={() => handleMenuItemClick(item.key)}
+                style={{
+                  margin: "0 16px",
+                  fontSize: "15px",
+                  textDecoration: "none",
+                  color: scrollPosition ? "#6e6e6e" : "#fff",
+                  lineHeight: "24px",
+                  borderBottom:
+                    activeItem === item.key ? "2px solid #fff" : "none",
+                  transition: "border-color 0.3s ease-out",
+                  textTransform: "capitalize",
+                }}
+              >
+                {t(`${item.label}`)}
+              </a>
+            ))}
+          </Box>
+
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <LanguageControl black={scrollPosition} />
+             
+            {/* contact  */}
+            <Typography
+              component={"h4"}
+              fontSize="16px"
+              sx={{ display: { xs: "none", lg: "block" } }}
+            >
+              +998 90 044 44 01
+            </Typography>
+            <Box
               sx={{
-                height:'100px',
-                display: "flex",
-                justifyContent: "space-between",
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                background: "#00b2bf",
+                color: "#fff",
+                display: {xs:"none", mb:"flex"},
+                justifyContent: "center",
                 alignItems: "center",
+                marginLeft: "10px",
               }}
             >
-              <Logo  />
-              <Box
+              <PhoneIcon sx={{ fontSize: "20px" }} />
+            </Box>
+            
+            {/* mobil menu */}
+            <Box
+              sx={{
+                width: "auto",
+                display: { xs: "flex", md: "none" },
+                justifyContent: "end",
+              }}
+            >
+              <IconButton
+                size="large"
+                aria-label="menu"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+              >
+                <MenuIcon style={{ color: scrollPosition ? "#000" : "#fff" }} />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
                 sx={{
-                  display: { xs: "none", md: "flex" },
-                  width: "40%",
-                  justifyContent: "space-between",
-                  alignItems:"center"
+                  color: "#fff",
+                  display: { xs: "block", md: "none" },
                 }}
               >
                 {navItems.map((item) => (
-                  <a
+                  <MenuItem
                     key={item.key}
-                    href={item.href}
                     onClick={() => handleMenuItemClick(item.key)}
-                    style={{
-                      margin: "0 16px",
-                      fontSize: "15px",
-                      textDecoration: "none",
-                      color:"#fff",
-                      lineHeight:"24px",
-                      borderBottom:
-                        activeItem === item.key ? "2px solid #fff" : "none",
-                      transition: "border-color 0.3s ease-out",
-                      textTransform:"capitalize"
-                    }}
                   >
-                    {t(`${item.label}`)}
-                  </a>
-                ))}
-        
-        
-              </Box>
-
-              <Box sx={{ display: "flex", alignItems:'center' }}>
-              <LanguageControl  />
-                <Typography component={"h4"} fontSize="16px">
-                  +998 90 044 44 01
-                </Typography>
-                <Box sx={{width:'40px', height:'40px', borderRadius:'50%', background:'#00b2bf', display:'flex', justifyContent:'center', alignItems:'center',marginLeft:'10px' }}>
-                  <PhoneIcon sx={{fontSize:'20px'}} />
-                </Box>
-              </Box>
-
-              <Box
-                sx={{
-                  width: "auto",
-                  display: { xs: "flex", md: "none" },
-                  justifyContent: "end",
-                }}
-              >
-                <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleOpenNavMenu}
-                  color="#fff"
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorElNav}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                  open={Boolean(anchorElNav)}
-                  onClose={handleCloseNavMenu}
-                  sx={{
-                    color: "#fff",
-                    display: { xs: "block", md: "none" },
-                  }}
-                >
-                  {navItems.map((item) => (
-                    <MenuItem
+                    <a
                       key={item.key}
+                      href={item.href}
                       onClick={() => handleMenuItemClick(item.key)}
+                      style={{
+                        margin: "0 16px",
+                        fontSize: "15px",
+                        textDecoration: "none",
+                        color: "#000",
+                        lineHeight: "24px",
+                        borderBottom:
+                          activeItem === item.key ? "2px solid #000" : "none",
+                        transition: "border-color 0.3s ease-out",
+                        textTransform: "capitalize",
+                      }}
                     >
-                      <a
-                        key={item.key}
-                        href={item.href}
-                        onClick={() => handleMenuItemClick(item.key)}
-                        style={{
-                          margin: "0 16px",
-                          fontSize: "15px",
-                          textDecoration: "none",
-                          color:"#000",
-                          lineHeight:"24px",
-                          borderBottom:
-                            activeItem === item.key
-                              ? "2px solid #000"
-                              : "none",
-                          transition: "border-color 0.3s ease-out",
-                          textTransform:"capitalize"
-                        }}
-                      >
-                        {t(`${item.label}`)}
-                      </a>
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </Box>
-            </Toolbar>
-          </Container>
-        </AppBar>
+                      {t(`${item.label}`)}
+                    </a>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }
 

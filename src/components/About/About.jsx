@@ -14,6 +14,10 @@ const AboutContainer = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  
+  @media (max-width:599px){
+    height: auto;
+  }
 `;
 
 const About = () => {
@@ -23,7 +27,7 @@ const About = () => {
   return (
     <AboutContainer id="about">
       <Container>
-        <Box sx={{ width: "70%"}}>
+        <Box sx={{  width:{md:"70%", xs:"100%"}, textAlign:{md:"left", xs:"center"}}}>
           <HeadingText>{t("about.heading")}</HeadingText>
           <SubHeadingText>{t("about.subHeading")}</SubHeadingText>
           <ParagraphText style={{marginTop:"30px"}}>

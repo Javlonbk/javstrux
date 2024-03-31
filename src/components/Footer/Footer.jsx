@@ -4,6 +4,7 @@ import navItems from "../../data/navbar";
 import styled from "styled-components";
 import Logo from "../Logo/Logo";
 import { Telegram, Instagram, Twitter, Mail } from "@mui/icons-material";
+import { useTranslation } from "react-i18next";
 
 const FooterContainer = styled.div`
   padding: 50px 0px;
@@ -12,6 +13,8 @@ const FooterContainer = styled.div`
 
 const Footer = () => {
   const [activeItem, setActiveItem] = React.useState(null);
+
+  const {t} = useTranslation();
 
   return (
     <FooterContainer>
@@ -30,7 +33,7 @@ const Footer = () => {
               href={item.href}
               onClick={() => handleMenuItemClick(item.key)}
               style={{
-                margin: "5px 0px",
+                marginTop: "10px",
                 fontSize: "18px",
                 textDecoration: "none",
                 color: "#6e6e6e",
@@ -40,7 +43,7 @@ const Footer = () => {
                 transition: "border-color 0.3s ease-out",
               }}
             >
-              {item.label}
+              {t(`${item.label}`)}
             </a>
           ))}
         </Box>

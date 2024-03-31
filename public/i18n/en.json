@@ -15,7 +15,11 @@
     "about": {
         "heading": "About Us",
         "subHeading": "Transforming dreams into reality, JAVSTRUX builds with perfect craftsmanship and innovative solutions.",
-        "paragraph": "We don't just create projects, we create new possibilities. By building state-of-the-art structures, we shape the future. We are committed to full responsibility for ecological aspects related to building and using company buildings and infrastructure."
+        "paragraph": "We don't just create projects, we create new possibilities. By building state-of-the-art structures, we shape the future. We are committed to full responsibility for ecological aspects related to building and using company buildings and infrastructure.",
+        "statistics": {
+            "label": ["Employees", "Projects", "Experience"]
+        }
+         
     },
     "projects": {
         "heading": "Our Projects",
@@ -26,5 +30,30 @@
         "title4": "\"Fonon - A large factory producing jewelry made of precious metals based on Italian factories in Uzbekistan in 2020. Fonon - A large enterprise producing jewelry made of precious metals in Central Asia using European and Eastern methods.\"",
         "title5": "\"International children's garden and school located in Tashkent City international business center.\"",
         "title6": "\"This is an internationally accredited educational institution.\""
-    }
+    },
+    "news": {
+        "heading": "News",
+        "title1": "Dwell: Kicked Out of a Rental, This L.A. Couple Bought, and Then Built the Best ADU They Could",
+        "title2": "Enes Yilmazer: This TINY HOUSE is the Future of Housing!",
+        "title3": "Why you need a supercomputer to build a house",
+        "title4": "Kirsten Dirksen: Granny felt lonely. Her new backyard home has her relatives knocking",
+        "date1": "tue feb 13 2024",
+        "date2": "MON DEC 25 2023",
+        "date3": "sat dec 08 2018",
+        "date4": "SUN SEP 3 2023"
+    },
+    "contact": {
+        "form":{
+            "heading": "Leave your thoughts and observations.",
+            "name": "Your Name",
+            "nameError": "Name must be less than 4 characters!",
+            "phone": "Your Phone Number",
+            "phoneError": "Incorrect phone number!",
+            "message": "Leave your message...",
+            "messageError": "Message cannot be empty!",
+            "send": "Send"
+        }
+    },
+    "btn": "Details"
+    
 }
