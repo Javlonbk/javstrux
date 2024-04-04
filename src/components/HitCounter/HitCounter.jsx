@@ -25,6 +25,9 @@ const HitCounterContainer = styled.div`
       .scroll-trigger{
         margin: 15px auto;
       }
+      h1{
+        font-size: 32px;
+      }
     }
 `;
 

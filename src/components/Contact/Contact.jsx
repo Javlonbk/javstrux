@@ -51,7 +51,7 @@ const Contact = () => {
           >
             <CloseIcon />
           </IconButton>
-          <Form />
+          <Form  />
         </Box>
       </Drawer>
     </ContactContainer>
